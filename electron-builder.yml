@@ -1,0 +1,45 @@
+directories:
+  buildResources: buildResources
+  output: dist
+extraResources: ["tools", "external-resources", 'firmwares', "statics", "drivers"]
+
+appId: 'STEMbotix.Blockzie-link-desktop'
+productName: "Blockzie Link"
+publish: # empty provider list = don't publish
+
+mac:
+  category: public.app-category.education
+  entitlements: buildResources/entitlements.mac.plist
+  gatekeeperAssess: true
+  hardenedRuntime: true
+  icon: buildResources/Blockzie-Link.icns
+  provisioningProfile: embedded.provisionprofile
+  artifactName: "Blockzie Link ${version}.${ext}"
+  target:
+    - dmg
+    # - mas
+dmg:
+  title: "Blockzie Link ${version}"
+# mas:
+#   category: public.app-category.education
+#   entitlements: buildResources/entitlements.mas.plist
+#   entitlementsInherit: buildResources/entitlements.mas.inherit.plist
+#   hardenedRuntime: false
+#   icon: buildResources/Blockzie-Link.icns
+
+win:
+  icon: buildResources/Blockzie-Link.ico
+  target:
+    # - appx
+    - nsis
+# appx:
+#   identityName: Blockzie.BlockzieLinkDesktop
+#   publisherDisplayName: "Blockzie"
+#   publisher: "CN=2EC43DF1-469A-4119-9AB9-568A0A1FF65F"
+#   artifactName: "Blockzie Link Desktop ${version}.${ext}"
+nsis:
+  oneClick: false # allow user to choose per-user or per-machine
+  allowToChangeInstallationDirectory: true
+  include: buildResources/installer.nsh
+#   license: LICENSE
+  artifactName: "Blockzie Link ${version} Setup.${ext}"

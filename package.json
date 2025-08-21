@@ -1,0 +1,63 @@
+{
+  "name": "blockzie-link-desktop",
+  "productName": "Blockzie Link",
+  "version": "2.0.0",
+  "description": "blockzie link desktop",
+  "main": "src/index.js",
+  "author": "Stembotix Team",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "i18n:src": "mkdirp translations && format-message extract --out-file translations/en.json src/**.js",
+    "i18n:push": "tx-push-src openblock-editor link-desktop translations/en.json",
+    "fetch:drivers": "rimraf ./drivers && node scripts/download-driver.js",
+    "fetch:exts": "rimraf ./external-resources && node ./node_modules/openblock-resource/script/download.js",
+    "fetch:firmwares": "rimraf ./firmwares && node ./node_modules/openblock-link/script/download-firmwares.js",
+    "fetch:tools": "rimraf ./tools && node ./node_modules/openblock-link/script/download-tools.js",
+    "fetch:all": "npm run fetch:drivers && npm run fetch:exts && npm run fetch:firmwares && npm run fetch:tools",
+    "fetch:all32": "npm run fetch:drivers && npm run fetch:exts && npm run fetch:firmwares && npm run fetch:tools -- --arch=ia32",
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:pack": "electron-builder --dir",
+    "dist": "npm run clean && npm run fetch:all && electron-builder",
+    "dist32": "npm run clean && npm run fetch:all32 && electron-builder --ia32",
+    "clean": "rimraf ./dist ./external-resources ./tools ./firmwares ./drivers",
+    "lint": "eslint ./src",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openblockcc/openblock-link-desktop.git"
+  },
+  "keywords": [
+    "openblock",
+    "link",
+    "scratch3.0",
+    "desktop"
+  ],
+  "bugs": {
+    "url": "https://github.com/openblockcc/openblock-link-desktop/issues"
+  },
+  "homepage": "https://github.com/openblockcc/openblock-link-desktop#readme",
+  "dependencies": {
+    "del": "^6.0.0",
+    "electron-progressbar": "^2.0.1",
+    "fetch": "^1.1.0",
+    "node-localstorage": "^2.2.1",
+    "openblock-l10n": "^3.10.20211007020944",
+    "openblock-link": "0.1.0-prerelease.20211006073349",
+    "openblock-resource": "0.1.0-prerelease.20210918043733",
+    "os-locale": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "compare-versions": "^3.6.0",
+    "electron": "^8.5.5",
+    "electron-builder": "^22.9.1",
+    "eslint": "^5.16.0",
+    "eslint-config-scratch": "^5.0.0",
+    "format-message": "^6.2.3",
+    "format-message-cli": "^6.2.3",
+    "rimraf": "^3.0.2"
+  }
+}

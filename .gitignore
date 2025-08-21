@@ -1,5 +1,15 @@
-# OSX
-.DS_Store
+# npm file
+node_modules/
 
-# Editor
-.vscode
+# Temporary resource
+/external-resources
+/tools
+/firmwares
+/drivers
+/translations
+
+# Build dist
+dist/
+
+# Mac
+.DS_Store
