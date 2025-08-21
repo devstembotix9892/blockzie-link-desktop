@@ -1,7 +1,7 @@
 {
   "name": "blockzie-link-desktop",
   "productName": "Blockzie Link",
-  "version": "2.0.0",
+  "version": "2.0.3",
   "description": "blockzie link desktop",
   "main": "src/index.js",
   "author": "Stembotix Team",
@@ -30,24 +30,23 @@
     "url": "git+https://github.com/openblockcc/openblock-link-desktop.git"
   },
   "keywords": [
-    "openblock",
+    "blockzie",
     "link",
     "scratch3.0",
     "desktop"
   ],
   "bugs": {
-    "url": "https://github.com/openblockcc/openblock-link-desktop/issues"
+    "url": "https://github.com/openblockcc/openblock-agent/issues"
   },
-  "homepage": "https://github.com/openblockcc/openblock-link-desktop#readme",
+  "homepage": "https://github.com/openblockcc/openblock-agent#readme",
   "dependencies": {
     "del": "^6.0.0",
     "electron-progressbar": "^2.0.1",
-    "fetch": "^1.1.0",
-    "node-localstorage": "^2.2.1",
     "openblock-l10n": "^3.10.20211007020944",
     "openblock-link": "0.1.0-prerelease.20211006073349",
     "openblock-resource": "0.1.0-prerelease.20210918043733",
-    "os-locale": "^5.0.0"
+    "os-locale": "^5.0.0",
+    "node-localstorage": "^2.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
